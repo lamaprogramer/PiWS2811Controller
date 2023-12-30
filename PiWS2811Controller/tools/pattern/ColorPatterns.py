@@ -8,7 +8,7 @@ class PatternRegistry(type):
     def __init__(cls, name, bases, attrs):
         if name != "ColorPattern":
             cls.patterns.append(cls)
-            print(cls.patterns)
+            print("loaded plugins: " + str(cls.patterns))
             
 
 class ColorPattern(object, metaclass=PatternRegistry):   
