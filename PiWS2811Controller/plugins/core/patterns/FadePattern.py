@@ -1,5 +1,5 @@
 import time
-import PiWS2811Controller.tools.pattern.ColorPatterns as plugin
+import tools.pattern.ColorPatterns as plugin
 
 class FadePattern(plugin.ColorPattern):
     
@@ -14,7 +14,7 @@ class FadePattern(plugin.ColorPattern):
                 self.lerpColor(pixels, colors[i], nextColor, theme.speed, theme.steps)
                 time.sleep(theme.wait)
 
-    def lerpColor(pixels, currentColor, newColor, speed, steps):
+    def lerpColor(self, pixels, currentColor, newColor, speed, steps):
         redDifference = newColor[0] - currentColor[0]
         greenDifference = newColor[1] - currentColor[1]
         blueDifference = newColor[2] - currentColor[2]

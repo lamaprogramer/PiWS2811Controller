@@ -9,13 +9,10 @@ class PatternRegistry(type):
         if name != "ColorPattern":
             cls.patterns.append(cls)
             print("loaded plugins: " + str(cls.patterns))
-            
 
 class ColorPattern(object, metaclass=PatternRegistry):   
     def pattern(self, pixels, pixelCount, theme): raise NotImplementedError
     
-    
-
 def loadPatterns(path):
     for fname in os.listdir(path):
         if not fname.startswith("__") and not fname.startswith(".") and fname.endswith(".py"):

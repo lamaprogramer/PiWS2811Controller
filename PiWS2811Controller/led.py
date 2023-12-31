@@ -8,13 +8,12 @@ from tools.plugin.Plugin import Plugin
 from tools.theme.Theme import Theme
 
 if __name__ == "__main__":
-    sys.path.append(str(Path(__file__).parent.parent))
     controller: LEDController = LEDController(board.D21, 50)
 
-    plugin: Plugin = controller.pluginManager.plugins[0]
+    plugin: Plugin = controller.pluginManager.plugins["core"]
 
     theme: Theme = plugin.themeManager.themes[0]
-#plugin.patternManager.get("FadePattern").pattern(controller.pixels, controller.pixelCount, theme)
+    plugin.patternManager.get("ShiftPattern").pattern(controller.pixels, controller.pixelCount, theme)
 
 
 #fade(theme.colors, theme.wait, theme.speed, theme.steps)

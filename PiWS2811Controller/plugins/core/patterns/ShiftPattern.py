@@ -1,6 +1,6 @@
 import time
 
-import PiWS2811Controller.tools.pattern.ColorPatterns as plugin
+import tools.pattern.ColorPatterns as plugin
 
 class ShiftPattern(plugin.ColorPattern):
     
@@ -12,7 +12,7 @@ class ShiftPattern(plugin.ColorPattern):
                 self.colorsWithShift(pixels, pixelCount, colors, i)
                 time.sleep(theme.wait)
 
-    def colorsWithShift(pixels, pixelCount: int, colors: list, shift: int):
+    def colorsWithShift(self, pixels, pixelCount: int, colors: list, shift: int):
         position = 0
         while position != pixelCount:
             for i in range(shift, len(colors)+shift):

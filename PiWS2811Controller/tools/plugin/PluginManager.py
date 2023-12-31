@@ -8,14 +8,13 @@ from tools.pattern import PatternManager
 class PluginManager:
 
     def __init__(self, pluginsPath):
-
+        self.plugins = {}
         pluginNames = []
         
         for (dirpath, dirnames, filenames) in os.walk(pluginsPath):
             pluginNames.extend(dirnames)
             break
         
-        self.plugins = []
         for pluginName in pluginNames:
             pluginDir = os.path.join(pluginsPath, pluginName)
 
@@ -30,6 +29,6 @@ class PluginManager:
             if os.path.exists(patternsPath):
                 patternManager = PatternManager.PatternManager(patternsPath)
             
-            self.plugins.append(Plugin.Plugin(themeManager, patternManager))
+            self.plugins[pluginName] = Plugin.Plugin(themeManager, patternManager)
 
 
