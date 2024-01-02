@@ -1,13 +1,14 @@
 import os
+import neopixel
 
-
-from tools.plugin import Plugin
-from tools.theme import ThemeManager
-from tools.pattern import PatternManager
+from PiWS2811Controller.plugin import Plugin
+from PiWS2811Controller.theme import ThemeManager
+from PiWS2811Controller.pattern import PatternManager
+from PiWS2811Controller.theme.Theme import Theme
 
 class PluginManager:
 
-    def __init__(self, pluginsPath):
+    def __init__(self, pluginsPath: str):
         self.plugins = {}
         pluginNames = []
         
@@ -29,6 +30,6 @@ class PluginManager:
             if os.path.exists(patternsPath):
                 patternManager = PatternManager.PatternManager(patternsPath)
             
-            self.plugins[pluginName] = Plugin.Plugin(themeManager, patternManager)
-
+            self.plugins[pluginName] = Plugin.Plugin(pluginName, themeManager, patternManager)
+    
 

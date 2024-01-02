@@ -1,4 +1,4 @@
-from tools.pattern.ColorPatterns import ColorPattern, loadPatterns
+from PiWS2811Controller.pattern.ColorPatterns import ColorPattern, loadPatterns
 from typing import Type, List
 
 

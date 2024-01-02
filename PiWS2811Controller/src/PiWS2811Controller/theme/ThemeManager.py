@@ -1,7 +1,7 @@
 import json
 import os
 
-from tools.theme import Theme
+from PiWS2811Controller.theme import Theme
 
 class ThemeManager:
 
@@ -14,7 +14,7 @@ class ThemeManager:
             files.extend(filenames)
             break
 
-        self.themes = []
+        self.themes = {}
         for file in files:
             with open(os.path.join(path, file), "r") as read_file:
                 data = json.load(read_file)
@@ -27,7 +27,7 @@ class ThemeManager:
                 speed: float = data["speed"] if "speed" in data else None
                 steps: int = data["steps"] if "steps" in data else None
 
-                self.themes.append(Theme.Theme(name, pattern, colors, wait, speed, steps))
+                self.themes[name] = Theme.Theme(name, pattern, colors, wait, speed, steps)
 
 
         for theme in self.themes:

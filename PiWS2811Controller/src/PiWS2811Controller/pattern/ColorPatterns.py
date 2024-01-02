@@ -1,6 +1,8 @@
 from importlib import util
 import os
+import neopixel
 
+from PiWS2811Controller.theme.Theme import Theme
 
 class PatternRegistry(type):
     patterns = []
@@ -11,7 +13,7 @@ class PatternRegistry(type):
             print("loaded plugins: " + str(cls.patterns))
 
 class ColorPattern(object, metaclass=PatternRegistry):   
-    def pattern(self, pixels, pixelCount, theme): raise NotImplementedError
+    def pattern(self, pixels: neopixel.NeoPixel, pixelCount, theme: Theme): raise NotImplementedError
     
 def loadPatterns(path):
     for fname in os.listdir(path):
