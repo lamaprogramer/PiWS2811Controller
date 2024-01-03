@@ -1,7 +1,2 @@
-bin/
-lib/
-__pycache__/
-lib64
-pyvenv.cfg
-project/
-PiWS2811Controller/dist
+dist/
+__pycache__
