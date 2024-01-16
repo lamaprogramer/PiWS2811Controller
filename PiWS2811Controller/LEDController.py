@@ -12,7 +12,13 @@ class LEDController:
 
         
     def runTheme(self, plugin: Plugin.Plugin, theme: Theme):
-        self.runThemeWithPattern(plugin, theme.pattern, theme)
+        if theme.pattern != "ANY":
+            self.runThemeWithPattern(plugin, theme.pattern, theme)
+        else:
+            print("No pattern specified")
         
     def runThemeWithPattern(self, plugin: Plugin.Plugin, pattern: str, theme: Theme):
-        plugin.patternManager.get(pattern).pattern(self.pixels, self.pixels.n, theme)
+        if theme.pattern == "ANY":
+            plugin.patternManager.get(pattern).pattern(self.pixels, self.pixels.n, theme)
+        else:
+            print("Theme already has a specified pattern")

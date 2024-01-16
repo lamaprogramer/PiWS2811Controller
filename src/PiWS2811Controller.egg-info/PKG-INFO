@@ -1,6 +1,0 @@
-Metadata-Version: 2.1
-Name: PiWS2811Controller
-Version: 0.0.1
-Summary: Plugin-based controller for Neopixel LEDs.
-Author: Iamaprogrammer
-Requires-Dist: adafruit-circuitpython-neopixel
